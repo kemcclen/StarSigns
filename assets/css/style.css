@@ -1,0 +1,14 @@
+:root {
+    /* colors */
+    --error-messages: red;
+
+    /* Fonts */
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+
+
+/* Form error messages */
+.error-message {
+    color: var(--error-messages);
+}

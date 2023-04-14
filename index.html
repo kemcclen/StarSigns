@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Give Me Space</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- JavaScript -->
+    <script src="./assets/js/index.js" defer></script>
 </head>
 <body>
-    
+    <!-- Form -->
+    <form data-js="form">
+        <input type="text" placeholder="Name" data-js="user-name">
+        <input type="text" placeholder="Star Sign" data-js="star-sign">
+        <div data-js="error-message"></div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- About -->
+    <div data-js="about"></div>
+
+    <!-- Planet Info -->
+    <div data-js="planet-info"></div>
 </body>
 </html>
