@@ -1,7 +1,36 @@
 var form = document.querySelector('[data-js="form"]')
 var nameInput = form.querySelector('[data-js="user-name"]')
-var signInput = form.querySelector('[data-js="star-sign"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
+
+// Get users Zodiac sign depending on their birth month and day
+var getZodiacSign = function () {
+	var birthMonth = form.querySelector('[data-js="birth-month"]').value
+	var birthDay = form.querySelector('[data-js="birth-day"]').value
+	var zodiacSigns = ['Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn']
+
+	var signDates = [
+		{ month: 1, day: 20 },
+		{ month: 2, day: 19 },
+		{ month: 3, day: 21 },
+		{ month: 4, day: 20 },
+		{ month: 5, day: 21 },
+		{ month: 6, day: 21 },
+		{ month: 7, day: 23 },
+		{ month: 8, day: 23 },
+		{ month: 9, day: 23 },
+		{ month: 10, day: 23 },
+		{ month: 11, day: 22 },
+		{ month: 12, day: 22 },
+	]
+
+	for (var i = 0; i < signDates.length; i++) {
+		if (birthMonth == signDates[i].month && birthDay >= signDates[i].day) {
+			return zodiacSigns[i]
+		} else if (birthMonth == signDates[i + 1].month && birthDay < signDates[i + 1].day) {
+			return zodiacSigns[i]
+		}
+	}
+}
 
 // Fetch information from horoscope API based on the user's sign
 function getSignInfo(userSign) {
@@ -12,28 +41,26 @@ function getSignInfo(userSign) {
 			'X-RapidAPI-Host': 'horoscope-astrology.p.rapidapi.com',
 		},
 	}
-
 	var signURL = `https://horoscope-astrology.p.rapidapi.com/sign?s=${userSign}`
 
-	fetch(signURL, options)
-		.then(function (response) {
-			if (response.ok) {
-				response.json().then(function (data) {
-					console.log(data)
+	fetch(signURL, options).then(function (response) {
+		if (response.ok) {
+			response.json().then(function (data) {
+				console.log(data)
 
-					var signInfo = data.about
-					renderSignInfo(signInfo)
+				var signInfo = data.about
+				renderSignInfo(signInfo)
 
-					var planetName = data.ruling_planet
-					getPlanet(planetName)
-				})
-			} else {
-				console.log(`Error: ${response.statusText}`)
-			}
-		})
-		.catch(function (err) {
-			console.error(err)
-		})
+				var planetName = data.ruling_planet
+				getPlanet(planetName)
+			})
+		} else {
+			console.log(`Error: ${response.statusText}`)
+		}
+	})
+	.catch(function (err) {
+		console.error(err)
+	})
 }
 
 // Render star sign information
@@ -96,7 +123,7 @@ var renderPlanetInfo = function (data) {
 // Display form error messages
 function showErrorMessage() {
 	var errorMessage = document.createElement('small')
-	errorMessage.innerText = '* Please enter your name and star sign.'
+	errorMessage.innerText = '* Please enter your first name.'
 	errorMessage.classList.add('error-message')
 	errorMessageEl.appendChild(errorMessage)
 }
@@ -112,14 +139,14 @@ form.addEventListener('submit', event => {
 	clearErrorMessage()
 
 	var userName = nameInput.value.trim()
-	var userSign = signInput.value.toLowerCase()
+	var userSign = getZodiacSign()
+	userSign = userSign.toLowerCase()
 
-	if (!userName || !userSign) {
+	if (!userName) {
 		showErrorMessage()
 		return
 	}
 	clearErrorMessage()
 	getSignInfo(userSign)
 	nameInput.value = ''
-	signInput.value = ''
 })
