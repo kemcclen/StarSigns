@@ -6,9 +6,78 @@
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+body {
+    color: white;
+    background: rgb(16,0,43);
+    background: linear-gradient(90deg, rgba(16,0,43,1) 0%, rgba(205,152,255,1) 100%, rgba(255,255,255,1) 100%);
+}
+
+.page-container {
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.flex {
+    display: flex;
+}
 
 
 /* Form error messages */
 .error-message {
     color: var(--error-messages);
+}
+
+/* Base Button Styles */
+.button {
+    color: white;
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+
+/* Form */
+.form-container {
+    color: white;
+    background-color: rgba(16,0,43,0.5);
+    width: 90%;
+    max-width: 500px;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.form__name {
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 5px 5px 10px;
+}
+
+.form__button {
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.form__button:hover,
+.form__button:active {
+    margin: 0 auto;
+    background-color: rgba(16,0,43,0.3);
 }
