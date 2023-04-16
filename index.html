@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Give Me Space</title>
+    <title>StarSigns | Daily Horoscopes</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/nho7wjm.css">
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -17,14 +18,24 @@
 </head>
 <body>
     <div class="page-container flex">
+
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav flex">
+                    <!-- <h1>StarSigns</h1> -->
+            </nav>
+        </header>
+
+
         <!-- Form -->
         <div class="form-container">
+            <img class="form__image" src="./assets/icons/horoscope.png" alt="Horoscope icon.">
             <form class="form flex" data-js="form">
                 <div form__title>
                     <h2>Get your daily horoscope predictions!</h2>
-                    <hr width="100%">
                 </div>
                 <input class="form__name" type="text" placeholder="First name" data-js="user-name">
+                <div data-js="error-message"></div>
                 <small>Enter the month and date you were born below.</small>
                 <div class="form__day">
                     <label for="day">Day: </label>
@@ -79,18 +90,28 @@
                     <option value="12">Dec</option>
                     </select>
                 </div>
-                <div data-js="error-message"></div>
                 <button class="form__button button" type="submit">Submit</button>
             </form>
         </div>
 
 
-        <!-- About -->
-        <div data-js="about"></div>
-        <!-- Planet Info -->
-        <div data-js="planet-info"></div>
+        <div class="card-container display-none" data-js="card-container">
+            <div>
+                <p data-js="welcome-message"></p>
+                <p data-js="star-sign"></p>
+                <p data-js="about"></p>
+                <p data-js="planet-info"></p>
+            </div>
+        </div>
+
+        
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer__content flex">
+                <small class="footer_copyright">© 2023 StarSigns</small>
+            </div>
+        </footer>
     </div>
-
-
 </body>
 </html>
