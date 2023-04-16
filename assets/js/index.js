@@ -33,7 +33,7 @@ var getZodiacSign = function () {
 }
 
 // Fetch information from horoscope API based on the user's sign
-function getSignInfo(userSign) {
+function getSignInfo(userSign, userName) {
 	const options = {
 		method: 'GET',
 		headers: {
@@ -43,32 +43,37 @@ function getSignInfo(userSign) {
 	}
 	var signURL = `https://horoscope-astrology.p.rapidapi.com/sign?s=${userSign}`
 
-	fetch(signURL, options).then(function (response) {
-		if (response.ok) {
-			response.json().then(function (data) {
-				console.log(data)
+	fetch(signURL, options)
+		.then(function (response) {
+			if (response.ok) {
+				response.json().then(function (data) {
+					console.log(data)
 
-				var signInfo = data.about
-				renderSignInfo(signInfo)
+					var signInfo = data.about
+					renderSignInfo(signInfo)
 
-				var planetName = data.ruling_planet
-				getPlanet(planetName)
-			})
-		} else {
-			console.log(`Error: ${response.statusText}`)
-		}
-	})
-	.catch(function (err) {
-		console.error(err)
-	})
+					var planetName = data.ruling_planet
+					getPlanet(planetName)
+
+					var cardContainerEl = document.querySelector('[data-js="card-container"]')
+					cardContainerEl.classList.remove('display-none')
+
+					var welcomeMessageEl = document.querySelector('[data-js="welcome-message"]')
+					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, you are a ${userSign}.</h1>`
+				})
+			} else {
+				console.log(`Error: ${response.statusText}`)
+			}
+		})
+		.catch(function (err) {
+			console.error(err)
+		})
 }
 
 // Render star sign information
 var renderSignInfo = function (signInfo) {
 	var aboutEl = document.querySelector('[data-js="about"]')
-	var about = document.createElement('p')
-	about.innerHTML = `<b>About:</b> ${signInfo}`
-	aboutEl.appendChild(about)
+	aboutEl.innerHTML = `<b>About:</b> ${signInfo}`
 }
 
 // Fetch planet information from API
@@ -133,6 +138,18 @@ function clearErrorMessage() {
 	errorMessageEl.innerHTML = ''
 }
 
+// Add the class of display none to block element
+function displayNone(element) {
+	element.classList.add('display-none')
+}
+
+function showContent(userName, userSign) {
+	var welcomeEl = document.querySelector('[data-js="welcome-message"]')
+	welcomeEl.innerHTML = `Hi ${userName}!`
+	var starSignEl = document.querySelector('[data-js="star-sign"]')
+	starSignEl.innerHTML = `Your star sign is ${userSign}`
+}
+
 // Event Handlers
 form.addEventListener('submit', event => {
 	event.preventDefault()
@@ -147,6 +164,7 @@ form.addEventListener('submit', event => {
 		return
 	}
 	clearErrorMessage()
-	getSignInfo(userSign)
+	getSignInfo(userSign, userName)
 	nameInput.value = ''
+	displayNone(form.parentElement)
 })
