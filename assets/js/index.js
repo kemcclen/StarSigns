@@ -13,9 +13,11 @@ var zodiacSignIcons = {
 	capricorn: './assets/icons/capricon.png',
 }
 
+
 var form = document.querySelector('[data-js="form"]')
 var nameInput = form.querySelector('[data-js="user-name"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
+var homeButton = document.querySelector('[data-js="home"]')
 
 // Get users Zodiac sign depending on their birth month and day
 var getZodiacSign = function () {
@@ -176,3 +178,11 @@ form.addEventListener('submit', event => {
 	nameInput.value = ''
 	displayNone(form.parentElement)
 })
+
+//Add click event to Home button to refresh page
+
+function refreshPage() {
+	window.location.reload();
+}
+
+homeButton.addEventListener("click", refreshPage);
