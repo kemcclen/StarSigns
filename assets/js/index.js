@@ -112,6 +112,12 @@ function getSignInfo(userSign, userName) {
 
 					var welcomeMessageEl = document.querySelector('[data-js="welcome-message"]')
 					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, you are a ${userSign}.</h1>`
+
+					//Append star sign icon beside welcome message
+					var signIcon = document.createElement("img");
+					signIcon.setAttribute("src",`/assets/icons/${userSign}.png`);
+					signIcon.setAttribute("class", "signIcon");
+					welcomeMessageEl.appendChild(signIcon);
 				})
 			} else {
 				console.log(`Error: ${response.statusText}`)
@@ -123,6 +129,8 @@ function getSignInfo(userSign, userName) {
 }
 
 // Render star sign information
+
+
 var renderSignInfo = function (signInfo) {
 	var aboutEl = document.querySelector('[data-js="about"]')
 	aboutEl.innerHTML = `<b>About:</b> ${signInfo}`

@@ -234,6 +234,14 @@ body {
     border-radius: 10px;
 }
 
+.welcomeMsg {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.signIcon {
+    height: 50px;
+}
 
 /* Footer */
 .footer {
