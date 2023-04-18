@@ -1,18 +1,3 @@
-var zodiacSignIcons = {
-	aquarius: './assets/icons/aquarius.png',
-	pisces: './assets/icons/pisces.png',
-	aries: './assets/icons/aries.png',
-	taurus: './assets/icons/taurus.png',
-	gemini: './assets/icons/gemini.png',
-	cancer: './assets/icons/cancer.png',
-	leo: './assets/icons/leo.png',
-	virgo: './assets/icons/virgo.png',
-	libra: './assets/icons/libra.png',
-	scorpio: './assets/icons/scorpio.png',
-	sagittarius: './assets/icons/sagittarius.png',
-	capricorn: './assets/icons/capricon.png',
-}
-
 var form = document.querySelector('[data-js="form"]')
 var nameInput = form.querySelector('[data-js="user-name"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
@@ -74,7 +59,7 @@ function getSignInfo(userSign, userName) {
 					cardContainerEl.classList.remove('display-none')
 
 					var welcomeMessageEl = document.querySelector('[data-js="welcome-message"]')
-					welcomeMessageEl.innerHTML = `<h2>Hi ${userName.charAt(0).toUpperCase() + userName.slice(1)}, your zodiac sign is ${userSign.charAt(0).toUpperCase() + userSign.slice(1)}.</h2>`
+					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, you are a ${userSign}.</h1>`
 				})
 			} else {
 				console.log(`Error: ${response.statusText}`)
@@ -88,7 +73,7 @@ function getSignInfo(userSign, userName) {
 // Render star sign information
 var renderSignInfo = function (signInfo) {
 	var aboutEl = document.querySelector('[data-js="about"]')
-	aboutEl.innerHTML = `<h3>About:</h3> ${signInfo}`
+	aboutEl.innerHTML = `<b>About:</b> ${signInfo}`
 }
 
 // Fetch planet information from API
@@ -132,11 +117,11 @@ var renderPlanetInfo = function (data) {
 	var planetInfoEl = document.querySelector('[data-js="planet-info"]')
 
 	var planetName = document.createElement('p')
-	planetName.innerHTML = `<h3>Planet name:</h3> ${data.name}`
+	planetName.innerHTML = `<b>Planet name:</b> ${data.name}`
 	planetInfoEl.appendChild(planetName)
 
 	var planetDescription = document.createElement('p')
-	planetDescription.innerHTML = `<h3>Description:</h3> ${data.description}`
+	planetDescription.innerHTML = `<b>Description:</b> ${data.description}`
 	planetInfoEl.appendChild(planetDescription)
 }
 
@@ -156,6 +141,13 @@ function clearErrorMessage() {
 // Add the class of display none to block element
 function displayNone(element) {
 	element.classList.add('display-none')
+}
+
+function showContent(userName, userSign) {
+	var welcomeEl = document.querySelector('[data-js="welcome-message"]')
+	welcomeEl.innerHTML = `Hi ${userName}!`
+	var starSignEl = document.querySelector('[data-js="star-sign"]')
+	starSignEl.innerHTML = `Your star sign is ${userSign}`
 }
 
 // Event Handlers
