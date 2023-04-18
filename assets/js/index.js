@@ -28,6 +28,8 @@ var getZodiacSign = function () {
 			return zodiacSigns[i]
 		} else if (birthMonth == signDates[i + 1].month && birthDay < signDates[i + 1].day) {
 			return zodiacSigns[i]
+		} else {
+			return zodiacSigns[11]
 		}
 	}
 }
@@ -51,7 +53,41 @@ function getSignInfo(userSign, userName) {
 
 					var signInfo = data.about
 					renderSignInfo(signInfo)
+					
+					var careerInfo = data.career
+					renderCareerInfo(careerInfo)
 
+					var compatibilityInfo = data.compatibility
+					renderCompatibilityInfo(compatibilityInfo)
+
+					var dateRangeInfo = data.date_range
+					renderDateRangeInfo(dateRangeInfo)
+
+					var elementInfo = data.element
+					renderElementInfo(elementInfo)
+
+					var healthInfo = data.health
+					renderHealthInfo(healthInfo)
+
+					var loveInfo = data.love
+					renderLoveInfo(loveInfo)
+
+					var relationshipInfo = data.relationship
+					renderRelationshipInfo(relationshipInfo)
+
+					var natureInfo = data.nature
+					renderNatureInfo(natureInfo)
+
+					var strengthsInfo = data.strengths
+					renderStrengthsInfo(strengthsInfo)
+
+					var weaknessesInfo = data.weaknesses
+					renderWeaknessesInfo(weaknessesInfo)
+
+					var symbolInfo = data.symbol
+					renderSymbolInfo(symbolInfo)
+
+					//planet info
 					var planetName = data.ruling_planet
 					getPlanet(planetName)
 
@@ -74,6 +110,61 @@ function getSignInfo(userSign, userName) {
 var renderSignInfo = function (signInfo) {
 	var aboutEl = document.querySelector('[data-js="about"]')
 	aboutEl.innerHTML = `<b>About:</b> ${signInfo}`
+}
+
+var renderCareerInfo = function (careerInfo) {
+	var aboutEl = document.querySelector('[data-js="career"]')
+	aboutEl.innerHTML = `<b>Career:</b> ${careerInfo}`
+}
+
+var renderCompatibilityInfo = function (compatibilityInfo) {
+	var aboutEl = document.querySelector('[data-js="compatibility"]')
+	aboutEl.innerHTML = `<b>Compatibility:</b> ${compatibilityInfo}`
+}
+
+var renderDateRangeInfo = function (dateRangeInfo) {
+	var aboutEl = document.querySelector('[data-js="date-range"]')
+	aboutEl.innerHTML = `<b>Date Range:</b> ${dateRangeInfo}`
+}
+
+var renderElementInfo = function (elementInfo) {
+	var aboutEl = document.querySelector('[data-js="element"]')
+	aboutEl.innerHTML = `<b>Element:</b> ${elementInfo}`
+}
+
+var renderHealthInfo = function (healthInfo) {
+	var aboutEl = document.querySelector('[data-js="health"]')
+	aboutEl.innerHTML = `<b>Health:</b> ${healthInfo}`
+}
+
+var renderLoveInfo = function (loveInfo) {
+	var aboutEl = document.querySelector('[data-js="love"]')
+	aboutEl.innerHTML = `<b>Love:</b> ${loveInfo}`
+}
+
+var renderRelationshipInfo = function (relationshipInfo) {
+	var aboutEl = document.querySelector('[data-js="relationship"]')
+	aboutEl.innerHTML = `<b>Relationships:</b> ${relationshipInfo}`
+}
+
+var renderNatureInfo = function (natureInfo) {
+	var aboutEl = document.querySelector('[data-js="nature"]')
+	aboutEl.innerHTML = `<b>Nature:</b> ${natureInfo}`
+}
+
+var renderStrengthsInfo = function (strengthsInfo) {
+	var aboutEl = document.querySelector('[data-js="strengths"]')
+	aboutEl.innerHTML = `<b>Strengths:</b> ${strengthsInfo}`
+}
+
+var renderWeaknessesInfo = function (weaknessesInfo) {
+	var aboutEl = document.querySelector('[data-js="weaknesses"]')
+	aboutEl.innerHTML = `<b>Weaknesses:</b> ${weaknessesInfo}`
+}
+
+var renderSymbolInfo = function (symbolInfo) {
+	var aboutEl = document.querySelector('[data-js="symbol"]')
+	aboutEl.innerHTML = `<b>Symbol:</b> ${symbolInfo}`
 }
 
 // Fetch planet information from API
