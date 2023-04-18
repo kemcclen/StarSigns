@@ -2,7 +2,7 @@
     /* colors */
     --primary-yellow:#F6BD60;
     --eggplant-accent: #734B5E;
-    --green-light-accent: #5b9486;
+    --green-light-accent: #84A59D;
     --green-dark-accent: #387780;
     --light-shade: #F7EDE2;
     --dark-shade: #1D201F; 
@@ -83,11 +83,10 @@ select:focus {
 
 
 body {
-    background-color: var(--light-shade);
+    background-image: url(/assets/background/galaxy-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-
-
 
 .page-container {
     position: relative;
@@ -97,7 +96,6 @@ body {
     flex-direction: column;
     padding-bottom: 100px;
 }
-
 
 .flex {
     display: flex;
@@ -146,10 +144,11 @@ body {
     text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
-
-
-
-
+.homeBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px
+}
 
 
 /* Form */
@@ -157,7 +156,7 @@ body {
     position: relative;
     color: var(--dark-shade);
     background-color: var(--primary-yellow);
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     height: 500px;
     border: none;
@@ -168,10 +167,10 @@ body {
 
 .form__image {
     position: absolute;
-    top: -25px;
-    right: -25px;
-    width: 50px;
-    padding: 2px;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    padding: 1rem;
     background-color: var(--primary-yellow);
     border: 2px solid var(--dark-shade);
     border-radius: 100px;
@@ -184,7 +183,7 @@ body {
     height: 100%;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .form__title {
@@ -206,7 +205,6 @@ body {
     margin: 0 auto;
     cursor: pointer;
     transition-duration: 150ms;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .form__button:hover,
@@ -217,23 +215,18 @@ body {
     background-color: var(--green-light-accent);
 }
 
-.form__button:active {
-    box-shadow: none;
-}
-
 
 
 /* Dynamic Card */
 .card-container {
     width: 90%;
-    max-width: 1000px;
-    height: 500px;
-    overflow: scroll;
+    max-width: 700px;
     padding: 4rem;
     border-radius: 1rem;
     background-color: var(--primary-yellow);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
+
 
 .tarot-link {
     margin-top: 6rem;
@@ -244,11 +237,34 @@ body {
 
 .tarot-link__icon {
     width: 50px;
+
+.card-container::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px !important;
 }
 
+.card-container::-webkit-scrollbar-corner {
+    background-color: var(--primary-yellow);
+}
 
+.card-container::-webkit-scrollbar-thumb {
+    background-color: var(--eggplant-accent);
+    border-radius: 10px;
+}
 
+.card-container::-webkit-scrollbar-track {
+    background-color: var(--primary-yellow); 
+    border-radius: 10px;
+}
 
+.welcomeMsg {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.signIcon {
+    height: 50px;
+}
 
 /* Footer */
 .footer {
@@ -265,6 +281,10 @@ body {
     height: 100%;
 }
 
+.footer_copyright {
+    color: var(--light-shade);
+}
+
 
 
 /* Media Queries */
@@ -278,11 +298,6 @@ body {
 /* Small */
 @media only screen and (min-width: 576px) {
 
-    .form {
-        width: 70%;
-        gap: 1.5rem;
-    }
-
     .form__name {
         width: 40%;
     }
@@ -294,8 +309,6 @@ body {
     .form-container {
         height: 500px;
     }
-
-    
     
 }
 
@@ -340,13 +353,8 @@ body {
         border-radius: 100px;
     }
 
-    /* Dynamic Card */
-    .card-container {
-        padding: 8rem;
-    }
-
     .footer {
-        background-color: var(--primary-yellow);
+        background-color: var(--green-dark-accent);
     }
 
 
