@@ -1,3 +1,4 @@
+
 var zodiacSignIcons = {
 	aquarius: './assets/icons/aquarius.png',
 	pisces: './assets/icons/pisces.png',
