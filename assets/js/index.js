@@ -1,18 +1,3 @@
-var zodiacSignIcons = {
-	aquarius: './assets/icons/aquarius.png',
-	pisces: './assets/icons/pisces.png',
-	aries: './assets/icons/aries.png',
-	taurus: './assets/icons/taurus.png',
-	gemini: './assets/icons/gemini.png',
-	cancer: './assets/icons/cancer.png',
-	leo: './assets/icons/leo.png',
-	virgo: './assets/icons/virgo.png',
-	libra: './assets/icons/libra.png',
-	scorpio: './assets/icons/scorpio.png',
-	sagittarius: './assets/icons/sagittarius.png',
-	capricorn: './assets/icons/capricon.png',
-}
-
 var form = document.querySelector('[data-js="form"]')
 var nameInput = form.querySelector('[data-js="user-name"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
