@@ -1,0 +1,126 @@
+
+/* Page Container */
+.page-container-tarot-card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Header */
+.header-tarot-card {
+    padding: 2rem;
+}
+
+
+/* Cards Container */
+.cards {
+    padding: 2rem;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    gap: 2rem;
+}
+
+.card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+    height: 500px;
+    perspective: 1000px;
+}
+
+.card__inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.card__inner.is-flipped {
+    transform: rotateY(180deg)
+}
+
+.card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.card__face--front {
+    background-color: var(--primary-yellow);
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card__face--back {
+    background-color: var(--eggplant-accent);
+    transform: rotateY(180deg);
+}
+
+.card__content {
+    width: 100%;
+    height: 100%;
+}
+
+.card__header {
+    position: relative;
+
+}
+
+.card__header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+
+/* Media Queries */
+
+/* Extra Small */
+@media only screen and (max-width: 576px) {
+    
+}
+
+/* Small */
+@media only screen and (min-width: 576px) {
+    
+}
+
+/* Medium */
+@media only screen and (min-width: 768px) {
+    .cards {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+/* Large */
+@media only screen and (min-width: 992px) {
+    
+}
+
+/* Extra Large */
+@media only screen and (min-width: 1200px) {
+    
+}
+
+/* Extra Extra Large */
+@media only screen and (min-width: 1440px) {
+    
+}

@@ -13,6 +13,12 @@
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+h1 {
+    font-family: "kepler-std", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.4rem;
+}
 
 h2 {
     font-family: "kepler-std", serif;
@@ -20,6 +26,11 @@ h2 {
     font-style: normal;
     font-size: 2.4rem;
 }
+
+/* Links*/
+a {
+    color: var(--dark-shade)
+  }
 
 /* Error Messages */
 small {
@@ -31,7 +42,8 @@ input,
 textarea,
 select,
 label,
-button {
+button,
+a {
     font-size: 1.6rem;
 }
 
@@ -215,6 +227,17 @@ body {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
+
+.tarot-link {
+    margin-top: 6rem;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarot-link__icon {
+    width: 50px;
+
 .card-container::-webkit-scrollbar {
     width: 10px;
     border-radius: 10px !important;
@@ -351,6 +374,6 @@ body {
 }
 
 /* Extra Extra Large */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
 
 }
