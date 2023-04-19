@@ -18,11 +18,13 @@ var nameInput = form.querySelector('[data-js="user-name"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
 var homeButton = document.querySelector('[data-js="home"]')
 
+
 // Get users Zodiac sign depending on their birth month and day
 var getZodiacSign = function () {
 	var birthMonth = form.querySelector('[data-js="birth-month"]').value
 	var birthDay = form.querySelector('[data-js="birth-day"]').value
 	var zodiacSigns = ['Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn']
+	
 
 	var signDates = [
 		{ month: 1, day: 20 },
@@ -39,16 +41,19 @@ var getZodiacSign = function () {
 		{ month: 12, day: 22 },
 	]
 
+
 	for (var i = 0; i < signDates.length; i++) {
 		if (birthMonth == signDates[i].month && birthDay >= signDates[i].day) {
 			return zodiacSigns[i]
 		} else if (birthMonth == signDates[i + 1].month && birthDay < signDates[i + 1].day) {
 			return zodiacSigns[i]
-		} else {
+		}  else if (birthMonth == signDates[0].month && birthDay <= 19){
 			return zodiacSigns[11]
 		}
 	}
+	
 }
+
 
 // Fetch information from horoscope API based on the user's sign
 function getSignInfo(userSign, userName) {
@@ -104,8 +109,17 @@ function getSignInfo(userSign, userName) {
 					renderSymbolInfo(symbolInfo)
 
 					//planet info
-					var planetName = data.ruling_planet
-					getPlanet(planetName)
+					 var planetName = data.ruling_planet
+					 if (userSign === 'Leo') {
+					   planetName = 'Sun';
+					 } else if (userSign === 'Cancer') {
+					   planetName = 'Moon';
+					  
+					 }
+					 getPlanet(planetName)
+					 
+					 var planetNameEl = document.querySelector('[data-js="planet-name"]');
+					 planetNameEl.textContent = planetName;
 
 					var cardContainerEl = document.querySelector('[data-js="card-container"]')
 					cardContainerEl.classList.remove('display-none')
@@ -113,7 +127,8 @@ function getSignInfo(userSign, userName) {
 					var welcomeMessageEl = document.querySelector('[data-js="welcome-message"]')
 					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, you are a ${userSign}.</h1>`
 				})
-			} else {
+			}
+			else {
 				console.log(`Error: ${response.statusText}`)
 			}
 		})
@@ -121,6 +136,11 @@ function getSignInfo(userSign, userName) {
 			console.error(err)
 		})
 }
+
+  // Print planet name for Leo and Cancer
+// function getPlanet(planetName) {
+// 	console.log(`Ruling planet: ${planetName}`)
+// }
 
 // Render star sign information
 var renderSignInfo = function (signInfo) {
@@ -183,9 +203,11 @@ var renderSymbolInfo = function (symbolInfo) {
 	aboutEl.innerHTML = `<b>Symbol:</b> ${symbolInfo}`
 }
 
+
 // Fetch planet information from API
 var getPlanet = function (planetName) {
 	var id = getPlanetId(planetName)
+
 
 	var options = {
 		method: 'GET',
@@ -202,6 +224,7 @@ var getPlanet = function (planetName) {
 					console.log(data)
 					renderPlanetInfo(data)
 				})
+			
 			} else {
 				console.log(response.statusText)
 			}
