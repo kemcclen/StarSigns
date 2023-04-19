@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarSigns | Daily Horoscopes</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" >
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,23 +99,35 @@
 
         
         <div class="card-container display-none" data-js="card-container">
-            <div>
+            <div class="card-info display-none">
                 <p data-js="welcome-message"></p>
                 <p data-js="star-sign"></p>
-                <p data-js="about"></p>
-                <p data-js="career"></p>
-                <p data-js="compatibility"></p>
                 <p data-js="date-range"></p>
+                <p data-js="symbol"></p>
                 <p data-js="element"></p>
-                <p data-js="health"></p>
-                <p data-js="love"></p>
-                <p data-js="relationship"></p>
-                <p data-js="nature"></p>
+                <p data-js="compatibility"></p>
                 <p data-js="strengths"></p>
                 <p data-js="weaknesses"></p>
-                <p data-js="symbol"></p>
-                <br>
-
+            </div>
+            <div class="card-info display-none">
+                <p data-js="about"></p>
+            </div>
+            <div class="card-info display-none">
+                <p data-js="nature"></p>
+            </div>
+            <div class="card-info display-none">
+                <p data-js="health"></p>
+            </div>
+            <div class="card-info display-none">
+                <p data-js="love"></p>
+            </div>
+            <div class="card-info display-none">
+                <p data-js="relationship"></p>
+            </div>
+            <div class="card-info display-none">
+                <p data-js="career"></p>
+            </div>
+            <div class="card-info display-none">
                 <p data-js="planet-info"></p>
             </div>
         </div>
@@ -127,5 +141,7 @@
             </div>
         </footer>
     </div>
+
+
 </body>
 </html>

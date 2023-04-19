@@ -109,6 +109,8 @@ function getSignInfo(userSign, userName) {
 
 					var cardContainerEl = document.querySelector('[data-js="card-container"]')
 					cardContainerEl.classList.remove('display-none')
+					var cardInfoChildrenEls = document.querySelectorAll('.card-info')
+					cardInfoChildrenEls.forEach(infoChildEl => infoChildEl.classList.remove('display-none'))
 
 					var welcomeMessageEl = document.querySelector('[data-js="welcome-message"]')
 					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, you are a ${userSign}.</h1>`
