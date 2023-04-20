@@ -1,5 +1,7 @@
 var cards = Array.from(document.querySelectorAll('[data-js="card-inner"]'))
 var cardsContent = Array.from(document.querySelectorAll('[data-js="card-back-content"]'))
+var viewSavedReadingBtn = document.querySelector('[data-js="view-saved-reading-btn"]')
+var saveReadingBtn = document.querySelector('[data-js="save-reading-btn"]')
 
 // Renders API data to Tarot cards
 function renderData(data) {
@@ -53,4 +55,50 @@ cards.forEach(card => {
 		card.classList.toggle('is-flipped')
 		console.log(card)
 	})
+})
+
+// Save data to local storage, replacing and current previous data.
+function saveToLocalStorage(data) {
+	console.log(JSON.stringify(data))
+	localStorage.setItem('Reading', JSON.stringify(data))
+}
+
+// Flip cards back to front
+function flipCardsBack() {
+	cards.forEach(card => {
+		card.classList.remove('is-flipped')
+	})
+	flipCards()
+}
+
+// Flip cards
+function flipCards() {
+	cards.forEach(card => {
+		card.classList.add('is-flipped')
+	})
+}
+
+// Event handler for the "View Last Reading" button
+viewSavedReadingBtn.addEventListener('click', function (event) {
+	var previousReading = JSON.parse(localStorage.getItem('Reading'))
+	console.log(previousReading)
+	flipCardsBack()
+	renderData(previousReading)
+})
+
+// Event handler for the "Save Reading" button
+saveReadingBtn.addEventListener('click', function (event) {
+	var currentReading = document.querySelectorAll('[data-js="card-back-content"]')
+	var currentReadingArr = []
+	currentReading.forEach(card => {
+		var cardName = card.querySelector('[data-js="card-back-name"]').innerHTML
+		var cardDesc = card.querySelector('[data-js="card-back-desc"]').innerHTML
+		var cardObj = {
+			name: cardName,
+			desc: cardDesc,
+		}
+		currentReadingArr.push(cardObj)
+	})
+	saveToLocalStorage({ res: currentReadingArr })
+	flipCards()
 })
