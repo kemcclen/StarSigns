@@ -121,6 +121,7 @@ function getSignInfo(userSign, userName) {
 					var signIcon = document.createElement("img");
 					signIcon.setAttribute("src",`/assets/icons/${userSign}.png`);
 					signIcon.setAttribute("class", "signIcon");
+					signIcon.setAttribute("alt", `${userSign} Symbol`)
 					welcomeMessageEl.appendChild(signIcon);
 				})
 			} else {
