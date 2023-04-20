@@ -45,10 +45,11 @@ var getZodiacSign = function () {
 			return zodiacSigns[i]
 		} else if (birthMonth == signDates[i + 1].month && birthDay < signDates[i + 1].day) {
 			return zodiacSigns[i]
-		} else {
+		}  else if (birthMonth == signDates[0].month && birthDay <= 19){
 			return zodiacSigns[11]
 		}
 	}
+	
 }
 
 // Fetch information from horoscope API based on the user's sign
