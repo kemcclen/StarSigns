@@ -11,7 +11,7 @@ function renderData(data) {
 
 		var cardNameEl = cardBodyEl.querySelector('[data-js="card-back-name"]')
 		var cardName = data.res[i].name
-		cardNameEl.innerHTML = `${cardName}`
+		cardNameEl.innerHTML = `<h3>${cardName}</h3>`
 
 		var cardDescEl = cardBodyEl.querySelector('[data-js="card-back-desc"]')
 		var cardDesc = data.res[i].desc

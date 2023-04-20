@@ -23,9 +23,11 @@
 
         <!-- Header -->
         <header class="header">
-            <button class="homeBtn button" data-js="home">Home</button>
             <nav class="nav flex">
-                    <!-- <h1>StarSigns</h1> -->
+                <div nav__logo>
+                    <h1 class="nav__logo-title" >StarSigns</h1>
+                </div>
+                <button class="header__home-btn button" data-js="home-btn">Home</button>
             </nav>
         </header>
 
@@ -98,7 +100,7 @@
         </div>
 
         
-        <div class="card-container display-none" data-js="card-container">
+        <div class="card-container display-none flex" data-js="card-container">
             <div class="card-info display-none">
                 <p class="welcomeMsg" data-js="welcome-message"></p>
                 <p data-js="star-sign"></p>
@@ -133,8 +135,8 @@
         </div>
 
         <div class="tarot-link flex">
-            <img class="tarot-link__icon" src="./assets/icons/tarot-card.png" alt="Tarot cards icon">
-            <a class="tarot-link__link" href="./assets/html/tarot.html">Draw your daily tarot card</a>
+            <a class="tarot-link__link" href="./assets/html/tarot.html">            <img class="tarot-link__icon" src="./assets/icons/tarot-card.png" alt="Tarot cards icon">
+                Get your tarot cards reading</a>
         </div>
 
         <!-- Footer -->
@@ -144,7 +146,7 @@
             </div>
         </footer>
     </div>
-
+    <div class="overlay-bg"></div>
 
 </body>
 </html>

@@ -17,7 +17,7 @@ var zodiacSignIcons = {
 var form = document.querySelector('[data-js="form"]')
 var nameInput = form.querySelector('[data-js="user-name"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
-var homeButton = document.querySelector('[data-js="home"]')
+var homeButton = document.querySelector('[data-js="home-btn"]')
 
 // Get users Zodiac sign depending on their birth month and day
 var getZodiacSign = function () {
