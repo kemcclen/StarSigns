@@ -19,11 +19,13 @@ var nameInput = form.querySelector('[data-js="user-name"]')
 var errorMessageEl = form.querySelector('[data-js="error-message"]')
 var homeButton = document.querySelector('[data-js="home-btn"]')
 
+
 // Get users Zodiac sign depending on their birth month and day
 var getZodiacSign = function () {
 	var birthMonth = form.querySelector('[data-js="birth-month"]').value
 	var birthDay = form.querySelector('[data-js="birth-day"]').value
 	var zodiacSigns = ['Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn']
+	
 
 	var signDates = [
 		{ month: 1, day: 20 },
@@ -40,6 +42,7 @@ var getZodiacSign = function () {
 		{ month: 12, day: 22 },
 	]
 
+
 	for (var i = 0; i < signDates.length; i++) {
 		if (birthMonth == signDates[i].month && birthDay >= signDates[i].day) {
 			return zodiacSigns[i]
@@ -51,6 +54,7 @@ var getZodiacSign = function () {
 	}
 	
 }
+
 
 // Fetch information from horoscope API based on the user's sign
 function getSignInfo(userSign, userName) {
@@ -104,10 +108,39 @@ function getSignInfo(userSign, userName) {
 
 					var symbolInfo = data.symbol
 					renderSymbolInfo(symbolInfo)
+					
 
+
+					
 					//planet info
-					var planetName = data.ruling_planet
-					getPlanet(planetName)
+					 var planetName = data.ruling_planet
+					 if (data.ruling_planet === 'Sun') {
+
+						var nameSun = document.createElement('p')
+					   nameSun.innerHTML = `<b>Planet name:</b> ${planetName}`
+					   var planetNameEl = document.querySelector('[data-js="planet-name"]');
+					   planetNameEl.appendChild(nameSun)
+
+					   var descriptionSun = document.createElement('p')
+					   descriptionSun.innerHTML = '<b>Decription:</b> The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma, heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.' 
+					   var planetDescription = document.querySelector('[data-js="planet-description"]');
+					   planetDescription.appendChild(descriptionSun)
+
+					   
+					 } else if (data.ruling_planet === 'Moon') {
+						var nameMoon = document.createElement('p')
+						nameMoon.innerHTML = `<b>Planet name:</b> ${planetName}`
+						var planetNameEl = document.querySelector('[data-js="planet-name"]');
+						planetNameEl.appendChild(nameMoon)
+ 
+						var descriptionMoon = document.createElement('p')
+						descriptionMoon.innerHTML = '<b>Decription:</b>The moon is the fifth largest satellite in the Solar System and the largest and most massive relative to its parent planet, with a diameter about one-quarter that of Earth (comparable to the width of Australia). ' 
+						var planetDescription = document.querySelector('[data-js="planet-description"]');
+						planetDescription.appendChild(descriptionMoon)
+					 } else {
+						getPlanet(planetName)
+					 }
+
 
 					var cardContainerEl = document.querySelector('[data-js="card-container"]')
 					cardContainerEl.classList.remove('display-none')
@@ -123,7 +156,8 @@ function getSignInfo(userSign, userName) {
 					signIcon.setAttribute("class", "signIcon");
 					welcomeMessageEl.appendChild(signIcon);
 				})
-			} else {
+			}
+			else {
 				console.log(`Error: ${response.statusText}`)
 			}
 		})
@@ -131,6 +165,7 @@ function getSignInfo(userSign, userName) {
 			console.error(err)
 		})
 }
+
 
 // Render star sign information
 
@@ -195,9 +230,11 @@ var renderSymbolInfo = function (symbolInfo) {
 	aboutEl.innerHTML = `<b>Symbol:</b> ${symbolInfo}`
 }
 
+
 // Fetch planet information from API
 var getPlanet = function (planetName) {
 	var id = getPlanetId(planetName)
+
 
 	var options = {
 		method: 'GET',
@@ -214,6 +251,7 @@ var getPlanet = function (planetName) {
 					console.log(data)
 					renderPlanetInfo(data)
 				})
+			
 			} else {
 				console.log(response.statusText)
 			}
