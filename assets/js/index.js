@@ -108,21 +108,38 @@ function getSignInfo(userSign, userName) {
 					var symbolInfo = data.symbol
 					renderSymbolInfo(symbolInfo)
 					
-					let sunEl = 'Planet name:'
+
+
 					
 					//planet info
 					 var planetName = data.ruling_planet
 					 if (data.ruling_planet === 'Sun') {
-					   planetName = sunEl
+
+						var nameSun = document.createElement('p')
+					   nameSun.innerHTML = `<b>Planet name:</b> ${planetName}`
+					   var planetNameEl = document.querySelector('[data-js="planet-name"]');
+					   planetNameEl.appendChild(nameSun)
+
+					   var descriptionSun = document.createElement('p')
+					   descriptionSun.innerHTML = '<b>Decription:</b> The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma, heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.' 
+					   var planetDescription = document.querySelector('[data-js="planet-description"]');
+					   planetDescription.appendChild(descriptionSun)
+
+					   
 					 } else if (data.ruling_planet === 'Moon') {
-					   planetName = 'Moon';
+						var nameMoon = document.createElement('p')
+						nameMoon.innerHTML = `<b>Planet name:</b> ${planetName}`
+						var planetNameEl = document.querySelector('[data-js="planet-name"]');
+						planetNameEl.appendChild(nameMoon)
+ 
+						var descriptionMoon = document.createElement('p')
+						descriptionMoon.innerHTML = '<b>Decription:</b>The moon is the fifth largest satellite in the Solar System and the largest and most massive relative to its parent planet, with a diameter about one-quarter that of Earth (comparable to the width of Australia). ' 
+						var planetDescription = document.querySelector('[data-js="planet-description"]');
+						planetDescription.appendChild(descriptionMoon)
 					 } else {
 						getPlanet(planetName)
 					 }
-					//  getPlanet(planetName)
-					 
-					 var planetNameEl = document.querySelector('[data-js="planet-name"]');
-					 planetNameEl.textContent = planetName;
+
 
 					var cardContainerEl = document.querySelector('[data-js="card-container"]')
 					cardContainerEl.classList.remove('display-none')
@@ -140,10 +157,6 @@ function getSignInfo(userSign, userName) {
 		})
 }
 
-  // Print planet name for Leo and Cancer
-// function getPlanet(planetName) {
-// 	console.log(`Ruling planet: ${planetName}`)
-// }
 
 // Render star sign information
 var renderSignInfo = function (signInfo) {
@@ -251,7 +264,6 @@ var renderPlanetInfo = function (data) {
 
 	var planetName = document.createElement('p')
 	planetName.innerHTML = `<b>Planet name:</b> ${data.name}`
-	console.log(data.name);
 	planetInfoEl.appendChild(planetName)
 
 	var planetDescription = document.createElement('p')
