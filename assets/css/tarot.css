@@ -20,6 +20,7 @@
     width: 90%;
     max-width: 1200px;
     gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .card {
@@ -87,7 +88,36 @@
     z-index: -1;
 }
 
+.view-saved-reading-btn,
+.save-reading-btn {
+    width: 175px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition-duration: 150ms;
+}
 
+.view-saved-reading-btn,
+.save-reading-btn {
+    margin: 2rem auto;
+    display: block;
+}
+
+
+
+.view-saved-reading-btn:hover,
+.save-reading-btn:hover,
+.save-reading-btn:active,
+.view-saved-reading-btn:active {
+    color: var(--light-shade);
+    border-color: var(--green-light-accent);
+    background-color: var(--green-light-accent);
+}
+
+
+.view-saved-reading-btn .icon-btn,
+.save-reading-btn .icon-btn {
+    padding-right: 0.75rem;
+}
 
 /* Media Queries */
 

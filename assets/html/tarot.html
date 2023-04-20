@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../css/tarot.css">
     <!-- JavaScript -->
     <script src="../js/tarot.js" defer></script>
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/e0b43907e8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Page container -->
@@ -27,7 +29,7 @@
 
         <!-- Tarot Cards Container -->
         <div class="cards flex">
-            <div class="card card1">
+            <div class="card">
                 <div class="card__inner" data-js="card-inner">
                     <div class="card__face card__face--front flex"> 
                         <h2>Click To Reveal</h2>
@@ -46,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="card card2">
+            <div class="card">
                 <div class="card__inner" data-js="card-inner">
                     <div class="card__face card__face--front flex"> 
                         <h2>Click To Reveal</h2>
@@ -65,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="card card3">
+            <div class="card">
                 <div class="card__inner" data-js="card-inner">
                     <div class="card__face card__face--front flex"> 
                         <h2>Click To Reveal</h2>
@@ -83,6 +85,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div>
+            <button class="button save-reading-btn" data-js="save-reading-btn"><i class="icon-btn fa-solid fa-floppy-disk"></i>Save Reading</button>
+            <button class="button view-saved-reading-btn" data-js="view-saved-reading-btn"><i class="icon-btn fa-solid fa-eye"></i>Saved Reading</button>
         </div>
 
 
