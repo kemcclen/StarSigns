@@ -107,16 +107,19 @@ function getSignInfo(userSign, userName) {
 
 					var symbolInfo = data.symbol
 					renderSymbolInfo(symbolInfo)
-
+					
+					let sunEl = 'Planet name:'
+					
 					//planet info
 					 var planetName = data.ruling_planet
-					 if (userSign === 'Leo') {
-					   planetName = 'Sun';
-					 } else if (userSign === 'Cancer') {
+					 if (data.ruling_planet === 'Sun') {
+					   planetName = sunEl
+					 } else if (data.ruling_planet === 'Moon') {
 					   planetName = 'Moon';
-					  
+					 } else {
+						getPlanet(planetName)
 					 }
-					 getPlanet(planetName)
+					//  getPlanet(planetName)
 					 
 					 var planetNameEl = document.querySelector('[data-js="planet-name"]');
 					 planetNameEl.textContent = planetName;
@@ -248,6 +251,7 @@ var renderPlanetInfo = function (data) {
 
 	var planetName = document.createElement('p')
 	planetName.innerHTML = `<b>Planet name:</b> ${data.name}`
+	console.log(data.name);
 	planetInfoEl.appendChild(planetName)
 
 	var planetDescription = document.createElement('p')
