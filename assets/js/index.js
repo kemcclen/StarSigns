@@ -63,6 +63,7 @@ function getSignInfo(userSign, userName) {
 		headers: {
 			'X-RapidAPI-Key': 'fe8e9ba566msh17124e256018f62p16f611jsn1710ab6c8e63',
 			'X-RapidAPI-Host': 'horoscope-astrology.p.rapidapi.com',
+			
 		},
 	}
 	var signURL = `https://horoscope-astrology.p.rapidapi.com/sign?s=${userSign}`
@@ -148,7 +149,7 @@ function getSignInfo(userSign, userName) {
 					cardInfoChildrenEls.forEach(infoChildEl => infoChildEl.classList.remove('display-none'))
 
 					var welcomeMessageEl = document.querySelector('[data-js="welcome-message"]')
-					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, you are a ${userSign}.</h1>`
+					welcomeMessageEl.innerHTML = `<h1>Hi ${userName}, your sign is ${userSign}.</h1>`
 
 					//Append star sign icon beside welcome message
 					var signIcon = document.createElement("img");
@@ -305,8 +306,9 @@ function showContent(userName, userSign) {
 	var welcomeEl = document.querySelector('[data-js="welcome-message"]')
 	welcomeEl.innerHTML = `Hi ${userName}!`
 	var starSignEl = document.querySelector('[data-js="star-sign"]')
-	starSignEl.innerHTML = `Your star sign is ${userSign}`
+	starSignEl.innerHTML = `your star sign is ${userSign}`
 }
+
 
 // Event Handlers
 form.addEventListener('submit', event => {
@@ -316,7 +318,7 @@ form.addEventListener('submit', event => {
 	var userName = nameInput.value.trim()
 	var userSign = getZodiacSign()
 	userSign = userSign.toLowerCase()
-
+	
 	if (!userName) {
 		showErrorMessage()
 		return
@@ -325,7 +327,10 @@ form.addEventListener('submit', event => {
 	getSignInfo(userSign, userName)
 	nameInput.value = ''
 	displayNone(form.parentElement)
+
 })
+
+
 
 //Add click event to Home button to refresh page
 
