@@ -11,13 +11,18 @@
 
 /* Header */
 .header-tarot-card {
+    display: flex;
     padding: 2rem;
+    justify-content: space-between;
 }
 
 .header-tarot-card__title {
     color: var(--light-shade);
 }
 
+.header__home-btn {
+    margin: 3rem;
+}
 
 /* Cards Container */
 .cards {
