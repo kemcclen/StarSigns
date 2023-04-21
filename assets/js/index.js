@@ -331,7 +331,6 @@ form.addEventListener('submit', event => {
 })
 
 
-
 //Add click event to Home button to refresh page
 
 function refreshPage() {
