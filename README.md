@@ -50,8 +50,7 @@ Then I can view it again using the "Saved Reading" button.
 
 ## Deployment
 
-Link to gitHub project: 
-**https://github.com/kemcclen/StarSigns**
+Link to gitHub project: **https://github.com/kemcclen/StarSigns**
 
 
 ## Requirements
@@ -109,11 +108,11 @@ You can save your reading, by clicking the "Save Reading" button. When you would
 
 ## Credits
 
-- jaychan0125  - Joyce Chan
-- julie-mac  - Julie Macpherson
-- kemcclen  - Katharine McClenaghan
-- matthew-millard  - Matthew Millard 
-- shok1to  - Shoko Takahashi
+- [jaychan0125](https://github.com/jaychan0125)  - Joyce Chan
+- [julie-mac](https://github.com/julie-mac)  - Julie Macpherson
+- [kemcclen](https://github.com/kemcclen)  - Katharine McClenaghan
+- [matthew-millard](https://github.com/matthew-millard)  - Matthew Millard 
+- [shok1to](https://github.com/shok1to)  - Shoko Takahashi
 
 
 ## Citations
