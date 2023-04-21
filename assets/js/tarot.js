@@ -2,6 +2,7 @@ var cards = Array.from(document.querySelectorAll('[data-js="card-inner"]'))
 var cardsContent = Array.from(document.querySelectorAll('[data-js="card-back-content"]'))
 var viewSavedReadingBtn = document.querySelector('[data-js="view-saved-reading-btn"]')
 var saveReadingBtn = document.querySelector('[data-js="save-reading-btn"]')
+var homeBtn = document.querySelector('[data-js="tarot-home"]');
 
 // Renders API data to Tarot cards
 function renderData(data) {
@@ -102,3 +103,9 @@ saveReadingBtn.addEventListener('click', function (event) {
 	saveToLocalStorage({ res: currentReadingArr })
 	flipCards()
 })
+
+homeBtn.addEventListener('click', homePage);
+
+function homePage() {
+	location.href = "../../index.html";
+}
