@@ -52,6 +52,8 @@ Then I can view it again using the "Saved Reading" button.
 
 Link to gitHub project: **https://github.com/kemcclen/StarSigns**
 
+Link to deployed page: **https://kemcclen.github.io/StarSigns/**
+
 
 ## Requirements
 
@@ -83,11 +85,11 @@ Here are the requirements for the Project:
 
 Welcome to StarSigns, a horoscope webpage that teaches you about astrology and astronomy! 
 
-![Horoscope](./assets/screenshots/starsigns-main-wInput.png)
+![Horoscope](./assets/screenshots/StarSigns-mainInput.png)
 
 To start, please insert your name, birth date and birth month, then click submit. 
 
-![Horoscope](./assets/screenshots/starsigns-horoscope.png)
+![Horoscope](./assets/screenshots/StarSigns-HoroscopePage.png)
 
 You'll then be direct to a page with information about your horoscope.
 
